@@ -4,7 +4,7 @@ import sys
 from datetime import date
 
 if __name__ == '__main__':
-    # Список работников.
+    
     workers = []
     # Организовать бесконечный цикл запроса команд.
     while True:
@@ -63,23 +63,21 @@ if __name__ == '__main__':
             today = date.today()
             # Разбить команду на части для выделения номера года.
             parts = command.split(' ', maxsplit=1)
-            # Получить требуемый стаж.
             period = int(parts[1])
             # Инициализировать счетчик.
-            count = 0
-            # Проверить сведения работников из списка.
+            count = 0         
             for worker in workers:
                 if today.year - worker.get('year', today.year) >= period:
                     count += 1
                     print(
                         '{:>4}: {}'.format(count, worker.get('name', ''))
                     )
-            # Если счетчик равен 0, то работники не найдены.
+            # Если счетчик равен 0, то продукты не найдены.
             if count == 0:
                 print("Продукт с данной ценой не найден.")
         elif command == 'help':
             # Вывести справку о работе с программой.
-           print("Список команд:\n")
+                print("Список команд:\n")
                 print("add - добавить продукт;")
                 print("list - вывести список продуктов;")
                 print("select <товар> - информация о товаре;")
